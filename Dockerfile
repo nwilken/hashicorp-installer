@@ -1,8 +1,11 @@
-FROM alpine:latest
-LABEL maintainer="seth@sethvargo.com"
+FROM amazonlinux:2
+LABEL maintainer="Nate Wilken <wilken@asu.edu>"
 
-# Install apt-utils to be helpful
-RUN apk --no-cache add curl gnupg unzip
+# adapted from https://github.com/sethvargo/hashicorp-installer
+
+RUN set -x && \
+    yum update -y && \
+    yum install -y unzip
 
 # Install the hashicorp gpg key - the key exists on keyservers, but they aren't
 # reliably available. After a lot of testing, it's easier to just manage the key

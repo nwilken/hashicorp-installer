@@ -30,7 +30,7 @@ $ install-hashicorp-tool terraform 0.11.7
 The tool can be used as a standalone installer:
 
 ```text
-$ docker run -v $(pwd):/software sethvargo/hashicorp-installer terraform 0.11.7
+$ docker run -v $(pwd):/software asuuto/hashicorp-installer terraform 0.11.7
 ```
 
 ### Multi-Stage Builder
@@ -39,12 +39,12 @@ The tool can also be used as part of a multi-stage Docker build:
 
 ```dockerfile
 # Download and verify the integrity of the download first
-FROM sethvargo/hashicorp-installer AS installer
+FROM asuuto/hashicorp-installer AS installer
 RUN /install-hashicorp-tool "terraform" "0.11.7"
 
 # Now copy the binary over into a smaller base image
 FROM alpine:latest
-COPY --from=installer /software/terraform /terraform
+COPY --from=installer /software/terraform /usr/local
 ENTRYPOINT ["/terraform"]
 ```
 
