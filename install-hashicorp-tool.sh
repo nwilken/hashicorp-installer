@@ -59,9 +59,8 @@ sha256sum -c "SHA256SUMS"
 
 echo "--> Unpacking and installing"
 mkdir -p "/software"
-unzip "${NAME}_${VERSION}_${OS}_${ARCH}.zip"
-mv "${NAME}" "/software/${NAME}"
-chmod +x "/software/${NAME}"
+unzip -d "/software/${NAME}" "${NAME}_${VERSION}_${OS}_${ARCH}.zip"
+chmod -R +x "/software/${NAME}"
 
 echo "--> Removing temporary files"
 rm "${NAME}_${VERSION}_${OS}_${ARCH}.zip"
