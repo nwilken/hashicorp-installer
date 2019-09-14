@@ -5,7 +5,9 @@ LABEL maintainer="Nate Wilken <wilken@asu.edu>"
 
 RUN set -x && \
     yum update -y && \
-    yum install -y unzip
+    yum install -y unzip && \
+    yum clean all && \
+    rm -rf /var/cache/yum /var/log/yum.log
 
 # Install the hashicorp gpg key - the key exists on keyservers, but they aren't
 # reliably available. After a lot of testing, it's easier to just manage the key
