@@ -8,7 +8,7 @@ Features:
 - **GPG import and verification** - automatically imports HashiCorp's GPG key
   and verifies the download integrity and signature
 
-- **Docker container** - includes a Docker contain which can be used as a
+- **Docker container** - includes a Docker container which can be used as a
   standalone way to install or can be used as a multi-stage pre-build container.
 
 ## Usage
